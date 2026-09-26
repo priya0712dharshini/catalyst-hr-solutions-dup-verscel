@@ -4,10 +4,11 @@ import { LogoFull } from "./Logo";
 import { Btn } from "./UI";
 
 const NAV_LINKS = [
-  { id: "home",    l: "Home"    },
-  { id: "jobs",    l: "Jobs"    },
-  { id: "about",   l: "About"   },
-  { id: "contact", l: "Contact" },
+  { id: "home",     l: "Home"     },
+  { id: "jobs",     l: "Jobs"     },
+  { id: "about",    l: "About"    },
+  { id: "services", l: "Services" },
+  { id: "contact",  l: "Contact"  },
 ];
 
 export default function Navbar({ page, nav, user, openAuth, doLogout }) {

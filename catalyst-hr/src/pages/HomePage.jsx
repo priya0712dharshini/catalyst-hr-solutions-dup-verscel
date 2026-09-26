@@ -144,24 +144,153 @@ export default function HomePage({ jobs, nav, openAuth }) {
       </div>
 
       {/* ── SERVICES ───────────────────────────────────────────────── */}
-      <div style={{ padding: "72px 28px", background: T.off }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 52 }}>
-            <Tag color={T.teal}>OUR EXPERTISE</Tag>
-            <h2 className="fade-up" style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(26px,3.5vw,40px)", fontWeight: 800, color: T.dark, margin: "14px 0 10px" }}>Comprehensive HR Solutions</h2>
-            <p style={{ color: T.greyMd, fontSize: 15, maxWidth: 500, margin: "0 auto" }}>Bridging the talent gap with precision, speed, and deep domain expertise.</p>
+<div
+  id="services"
+  style={{
+    padding: "72px 28px",
+    background: T.off,
+    scrollMarginTop: "90px"
+  }}
+>
+  <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+
+    {/* Section Heading */}
+    <div style={{ textAlign: "center", marginBottom: 52 }}>
+      <Tag color={T.teal}>OUR EXPERTISE</Tag>
+
+      <h2
+        className="fade-up"
+        style={{
+          fontFamily: "'Playfair Display',serif",
+          fontSize: "clamp(26px,3.5vw,40px)",
+          fontWeight: 800,
+          color: T.dark,
+          margin: "14px 0 10px"
+        }}
+      >
+        Comprehensive HR Solutions
+      </h2>
+
+      <p
+        style={{
+          color: T.greyMd,
+          fontSize: 15,
+          maxWidth: 500,
+          margin: "0 auto"
+        }}
+      >
+        Bridging the talent gap with precision, speed, and deep domain expertise.
+      </p>
+    </div>
+
+    {/* Service Cards */}
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill,minmax(270px,1fr))",
+        gap: 20
+      }}
+    >
+
+      {/* Existing Services */}
+      {SERVICES.map((svc, i) => (
+        <Card
+          key={svc.t}
+          cls="fade-up"
+          sx={{
+            padding: 28,
+            animationDelay: `${i * .07}s`
+          }}
+        >
+          <div
+            style={{
+              width: 54,
+              height: 54,
+              borderRadius: 14,
+              background: T.tealPale,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 28,
+              marginBottom: 18
+            }}
+          >
+            {svc.icon}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(270px,1fr))", gap: 20 }}>
-            {SERVICES.map((svc, i) => (
-              <Card key={svc.t} cls="fade-up" sx={{ padding: 28, animationDelay: `${i * .07}s` }}>
-                <div style={{ width: 54, height: 54, borderRadius: 14, background: T.tealPale, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, marginBottom: 18 }}>{svc.icon}</div>
-                <div style={{ fontWeight: 700, fontSize: 16, color: T.dark, marginBottom: 7 }}>{svc.t}</div>
-                <div style={{ fontSize: 14, color: T.greyMd, lineHeight: 1.7 }}>{svc.d}</div>
-              </Card>
-            ))}
+
+          <div
+            style={{
+              fontWeight: 700,
+              fontSize: 16,
+              color: T.dark,
+              marginBottom: 7
+            }}
+          >
+            {svc.t}
           </div>
+
+          <div
+            style={{
+              fontSize: 14,
+              color: T.greyMd,
+              lineHeight: 1.7
+            }}
+          >
+            {svc.d}
+          </div>
+        </Card>
+      ))}
+
+      {/* Healthcare Services */}
+      <Card
+        key="Healthcare Services"
+        cls="fade-up"
+        sx={{
+          padding: 28,
+          animationDelay: `${SERVICES.length * .07}s`
+        }}
+      >
+        <div
+          style={{
+            width: 54,
+            height: 54,
+            borderRadius: 14,
+            background: T.tealPale,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 28,
+            marginBottom: 18
+          }}
+        >
+         ⚕️
         </div>
-      </div>
+
+        <div
+          style={{
+            fontWeight: 700,
+            fontSize: 16,
+            color: T.dark,
+            marginBottom: 7
+          }}
+        >
+          Healthcare Services
+        </div>
+
+        <div
+          style={{
+            fontSize: 14,
+            color: T.greyMd,
+            lineHeight: 1.7
+          }}
+        >
+          Healthcare staffing and workforce solutions.
+        </div>
+      </Card>
+
+    </div>
+  </div>
+</div>
 
       {/* ── TEAM ───────────────────────────────────────────────────── */}
       <div style={{ padding: "72px 28px", background: T.white }}>

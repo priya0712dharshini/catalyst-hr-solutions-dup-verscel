@@ -54,12 +54,38 @@ export default function App() {
 
   // ── Persist page on every nav ──────────────────────────────────
   const nav = useCallback((p, id) => {
-    // Don't persist "job" detail page — restore to "jobs" instead
-    save(LS_PAGE, p === "job" ? "jobs" : p);
-    if (id !== undefined) { setJobId(id); save(LS_JOB, id); }
-    setPageState(p);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+
+  // Services is a section on the Home page
+  if (p === "services") {
+    save(LS_PAGE, "home");
+    setPageState("home");
+
+    setTimeout(() => {
+      document.getElementById("services")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 100);
+
+    return;
+  }
+
+  // Don't persist "job" detail page — restore to "jobs" instead
+  save(LS_PAGE, p === "job" ? "jobs" : p);
+
+  if (id !== undefined) {
+    setJobId(id);
+    save(LS_JOB, id);
+  }
+
+  setPageState(p);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}, []);
 
   // ── BroadcastChannel: create ONCE, attach listener in same effect ──
   const bc = useRef(null);
