@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://catalyst-hr-solutions-dup-verscel-tan.vercel.app/sitemap.xml
